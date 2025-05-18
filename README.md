@@ -58,6 +58,47 @@ xhr.send();
 
 ## Sample: AJAX with Fetch API (fetch-tutorial.js)
 
+**GET Request Example:**
+```js
+fetch("https://dummy.restapiexample.com/api/v1/employees")
+  .then((response) => {
+    if (!response.ok) throw new Error("Network response was not ok");
+    return response.json();
+  })
+  .then((obj) => {
+    // handle obj.data
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+**POST Request Example:**
+```js
+const employeeData = {
+  name: "Jane Smith",
+  salary: "54321",
+  age: "28",
+};
+fetch("https://dummy.restapiexample.com/api/v1/create", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(employeeData),
+})
+  .then((response) => {
+    if (!response.ok) throw new Error("Network response was not ok");
+    return response.json();
+  })
+  .then((obj) => {
+    // handle obj
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
 ## jQuery AJAX POST Example
 
 This project now includes a jQuery AJAX POST example for sending data to a server. Make sure jQuery is included in your HTML as shown below.
@@ -148,48 +189,5 @@ fetch('/api/data')
   ```
 
 Happy Learning!
-
----
-
-**GET Request Example:**
-```js
-fetch("https://dummy.restapiexample.com/api/v1/employees")
-  .then((response) => {
-    if (!response.ok) throw new Error("Network response was not ok");
-    return response.json();
-  })
-  .then((obj) => {
-    // handle obj.data
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-```
-
-**POST Request Example:**
-```js
-const employeeData = {
-  name: "Jane Smith",
-  salary: "54321",
-  age: "28",
-};
-fetch("https://dummy.restapiexample.com/api/v1/create", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(employeeData),
-})
-  .then((response) => {
-    if (!response.ok) throw new Error("Network response was not ok");
-    return response.json();
-  })
-  .then((obj) => {
-    // handle obj
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-```
 
 ---
